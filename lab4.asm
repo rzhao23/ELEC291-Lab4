@@ -1,10 +1,11 @@
 ;--------------------------------------------------------
 ; File Created by C51
 ; Version 1.0.0 #1170 (Feb 16 2022) (MSVC)
-; This file was generated Sun Feb 22 17:52:38 2026
+; This file was generated Mon Feb 23 14:18:37 2026
 ;--------------------------------------------------------
 $name lab4
 $optc51 --model-small
+$printf_float
 	R_DSEG    segment data
 	R_CSEG    segment code
 	R_BSEG    segment bit
@@ -566,69 +567,69 @@ _LCDprint_PARM_3:
 ;Allocation info for local variables in function '_c51_external_startup'
 ;------------------------------------------------------------
 ;------------------------------------------------------------
-;	D:\Coding\2026\291\lab4\lab4.c:30: char _c51_external_startup (void)
+;	D:\Coding\2026\291\lab4\lab4.c:32: char _c51_external_startup (void)
 ;	-----------------------------------------
 ;	 function _c51_external_startup
 ;	-----------------------------------------
 __c51_external_startup:
 	using	0
-;	D:\Coding\2026\291\lab4\lab4.c:33: SFRPAGE = 0x00;
+;	D:\Coding\2026\291\lab4\lab4.c:35: SFRPAGE = 0x00;
 	mov	_SFRPAGE,#0x00
-;	D:\Coding\2026\291\lab4\lab4.c:34: WDTCN = 0xDE; //First key
+;	D:\Coding\2026\291\lab4\lab4.c:36: WDTCN = 0xDE; //First key
 	mov	_WDTCN,#0xDE
-;	D:\Coding\2026\291\lab4\lab4.c:35: WDTCN = 0xAD; //Second key
+;	D:\Coding\2026\291\lab4\lab4.c:37: WDTCN = 0xAD; //Second key
 	mov	_WDTCN,#0xAD
-;	D:\Coding\2026\291\lab4\lab4.c:37: VDM0CN |= 0x80;
+;	D:\Coding\2026\291\lab4\lab4.c:39: VDM0CN |= 0x80;
 	orl	_VDM0CN,#0x80
-;	D:\Coding\2026\291\lab4\lab4.c:38: RSTSRC = 0x02;
+;	D:\Coding\2026\291\lab4\lab4.c:40: RSTSRC = 0x02;
 	mov	_RSTSRC,#0x02
-;	D:\Coding\2026\291\lab4\lab4.c:45: SFRPAGE = 0x10;
+;	D:\Coding\2026\291\lab4\lab4.c:47: SFRPAGE = 0x10;
 	mov	_SFRPAGE,#0x10
-;	D:\Coding\2026\291\lab4\lab4.c:46: PFE0CN  = 0x20; // SYSCLK < 75 MHz.
+;	D:\Coding\2026\291\lab4\lab4.c:48: PFE0CN  = 0x20; // SYSCLK < 75 MHz.
 	mov	_PFE0CN,#0x20
-;	D:\Coding\2026\291\lab4\lab4.c:47: SFRPAGE = 0x00;
+;	D:\Coding\2026\291\lab4\lab4.c:49: SFRPAGE = 0x00;
 	mov	_SFRPAGE,#0x00
-;	D:\Coding\2026\291\lab4\lab4.c:68: CLKSEL = 0x00;
+;	D:\Coding\2026\291\lab4\lab4.c:70: CLKSEL = 0x00;
 	mov	_CLKSEL,#0x00
-;	D:\Coding\2026\291\lab4\lab4.c:69: CLKSEL = 0x00;
+;	D:\Coding\2026\291\lab4\lab4.c:71: CLKSEL = 0x00;
 	mov	_CLKSEL,#0x00
-;	D:\Coding\2026\291\lab4\lab4.c:70: while ((CLKSEL & 0x80) == 0);
+;	D:\Coding\2026\291\lab4\lab4.c:72: while ((CLKSEL & 0x80) == 0);
 L002001?:
 	mov	a,_CLKSEL
 	jnb	acc.7,L002001?
-;	D:\Coding\2026\291\lab4\lab4.c:71: CLKSEL = 0x03;
+;	D:\Coding\2026\291\lab4\lab4.c:73: CLKSEL = 0x03;
 	mov	_CLKSEL,#0x03
-;	D:\Coding\2026\291\lab4\lab4.c:72: CLKSEL = 0x03;
+;	D:\Coding\2026\291\lab4\lab4.c:74: CLKSEL = 0x03;
 	mov	_CLKSEL,#0x03
-;	D:\Coding\2026\291\lab4\lab4.c:73: while ((CLKSEL & 0x80) == 0);
+;	D:\Coding\2026\291\lab4\lab4.c:75: while ((CLKSEL & 0x80) == 0);
 L002004?:
 	mov	a,_CLKSEL
 	jnb	acc.7,L002004?
-;	D:\Coding\2026\291\lab4\lab4.c:78: P0MDOUT |= 0x10; // Enable UART0 TX as push-pull output
+;	D:\Coding\2026\291\lab4\lab4.c:80: P0MDOUT |= 0x10; // Enable UART0 TX as push-pull output
 	orl	_P0MDOUT,#0x10
-;	D:\Coding\2026\291\lab4\lab4.c:79: XBR0     = 0x01; // Enable UART0 on P0.4(TX) and P0.5(RX)                     
+;	D:\Coding\2026\291\lab4\lab4.c:81: XBR0     = 0x01; // Enable UART0 on P0.4(TX) and P0.5(RX)                     
 	mov	_XBR0,#0x01
-;	D:\Coding\2026\291\lab4\lab4.c:80: XBR1     = 0X10; // Enable T0 on P0.0
+;	D:\Coding\2026\291\lab4\lab4.c:82: XBR1     = 0X10; // Enable T0 on P0.0
 	mov	_XBR1,#0x10
-;	D:\Coding\2026\291\lab4\lab4.c:81: XBR2     = 0x40; // Enable crossbar and weak pull-ups
+;	D:\Coding\2026\291\lab4\lab4.c:83: XBR2     = 0x40; // Enable crossbar and weak pull-ups
 	mov	_XBR2,#0x40
-;	D:\Coding\2026\291\lab4\lab4.c:87: SCON0 = 0x10;
+;	D:\Coding\2026\291\lab4\lab4.c:89: SCON0 = 0x10;
 	mov	_SCON0,#0x10
-;	D:\Coding\2026\291\lab4\lab4.c:88: CKCON0 |= 0b_0000_0000 ; // Timer 1 uses the system clock divided by 12.
+;	D:\Coding\2026\291\lab4\lab4.c:90: CKCON0 |= 0b_0000_0000 ; // Timer 1 uses the system clock divided by 12.
 	mov	_CKCON0,_CKCON0
-;	D:\Coding\2026\291\lab4\lab4.c:89: TH1 = 0x100-((SYSCLK/BAUDRATE)/(2L*12L));
+;	D:\Coding\2026\291\lab4\lab4.c:91: TH1 = 0x100-((SYSCLK/BAUDRATE)/(2L*12L));
 	mov	_TH1,#0xE6
-;	D:\Coding\2026\291\lab4\lab4.c:90: TL1 = TH1;      // Init Timer1
+;	D:\Coding\2026\291\lab4\lab4.c:92: TL1 = TH1;      // Init Timer1
 	mov	_TL1,_TH1
-;	D:\Coding\2026\291\lab4\lab4.c:91: TMOD &= ~0xf0;  // TMOD: timer 1 in 8-bit auto-reload
+;	D:\Coding\2026\291\lab4\lab4.c:93: TMOD &= ~0xf0;  // TMOD: timer 1 in 8-bit auto-reload
 	anl	_TMOD,#0x0F
-;	D:\Coding\2026\291\lab4\lab4.c:92: TMOD |=  0x20;                       
+;	D:\Coding\2026\291\lab4\lab4.c:94: TMOD |=  0x20;                       
 	orl	_TMOD,#0x20
-;	D:\Coding\2026\291\lab4\lab4.c:93: TR1 = 1; // START Timer1
+;	D:\Coding\2026\291\lab4\lab4.c:95: TR1 = 1; // START Timer1
 	setb	_TR1
-;	D:\Coding\2026\291\lab4\lab4.c:94: TI = 1;  // Indicate TX0 ready
+;	D:\Coding\2026\291\lab4\lab4.c:96: TI = 1;  // Indicate TX0 ready
 	setb	_TI
-;	D:\Coding\2026\291\lab4\lab4.c:96: return 0;
+;	D:\Coding\2026\291\lab4\lab4.c:98: return 0;
 	mov	dpl,#0x00
 	ret
 ;------------------------------------------------------------
@@ -637,48 +638,48 @@ L002004?:
 ;us                        Allocated to registers r2 
 ;i                         Allocated to registers r3 
 ;------------------------------------------------------------
-;	D:\Coding\2026\291\lab4\lab4.c:100: void Timer3us(unsigned char us)
+;	D:\Coding\2026\291\lab4\lab4.c:102: void Timer3us(unsigned char us)
 ;	-----------------------------------------
 ;	 function Timer3us
 ;	-----------------------------------------
 _Timer3us:
 	mov	r2,dpl
-;	D:\Coding\2026\291\lab4\lab4.c:105: CKCON0|=0b_0100_0000;
+;	D:\Coding\2026\291\lab4\lab4.c:107: CKCON0|=0b_0100_0000;
 	orl	_CKCON0,#0x40
-;	D:\Coding\2026\291\lab4\lab4.c:107: TMR3RL = (-(SYSCLK)/1000000L); // Set Timer3 to overflow in 1us.
+;	D:\Coding\2026\291\lab4\lab4.c:109: TMR3RL = (-(SYSCLK)/1000000L); // Set Timer3 to overflow in 1us.
 	mov	_TMR3RL,#0xB8
 	mov	(_TMR3RL >> 8),#0xFF
-;	D:\Coding\2026\291\lab4\lab4.c:108: TMR3 = TMR3RL;                 // Initialize Timer3 for first overflow
+;	D:\Coding\2026\291\lab4\lab4.c:110: TMR3 = TMR3RL;                 // Initialize Timer3 for first overflow
 	mov	_TMR3,_TMR3RL
 	mov	(_TMR3 >> 8),(_TMR3RL >> 8)
-;	D:\Coding\2026\291\lab4\lab4.c:110: TMR3CN0 = 0x04;                 // Sart Timer3 and clear overflow flag
+;	D:\Coding\2026\291\lab4\lab4.c:112: TMR3CN0 = 0x04;                 // Sart Timer3 and clear overflow flag
 	mov	_TMR3CN0,#0x04
-;	D:\Coding\2026\291\lab4\lab4.c:111: for (i = 0; i < us; i++)       // Count <us> overflows
+;	D:\Coding\2026\291\lab4\lab4.c:113: for (i = 0; i < us; i++)       // Count <us> overflows
 	mov	r3,#0x00
 L003006?:
 	clr	c
 	mov	a,r3
 	subb	a,r2
 	jnc	L003009?
-;	D:\Coding\2026\291\lab4\lab4.c:113: while (!(TMR3CN0 & 0x80));  // Wait for overflow
+;	D:\Coding\2026\291\lab4\lab4.c:115: while (!(TMR3CN0 & 0x80));  // Wait for overflow
 L003001?:
 	mov	a,_TMR3CN0
 	jnb	acc.7,L003001?
-;	D:\Coding\2026\291\lab4\lab4.c:114: TMR3CN0 &= ~(0x80);         // Clear overflow indicator
+;	D:\Coding\2026\291\lab4\lab4.c:116: TMR3CN0 &= ~(0x80);         // Clear overflow indicator
 	anl	_TMR3CN0,#0x7F
-;	D:\Coding\2026\291\lab4\lab4.c:115: if (TF0)
-;	D:\Coding\2026\291\lab4\lab4.c:117: TF0=0;
+;	D:\Coding\2026\291\lab4\lab4.c:117: if (TF0)
+;	D:\Coding\2026\291\lab4\lab4.c:119: TF0=0;
 	jbc	_TF0,L003019?
 	sjmp	L003008?
 L003019?:
-;	D:\Coding\2026\291\lab4\lab4.c:118: overflow_count++;
+;	D:\Coding\2026\291\lab4\lab4.c:120: overflow_count++;
 	inc	_overflow_count
 L003008?:
-;	D:\Coding\2026\291\lab4\lab4.c:111: for (i = 0; i < us; i++)       // Count <us> overflows
+;	D:\Coding\2026\291\lab4\lab4.c:113: for (i = 0; i < us; i++)       // Count <us> overflows
 	inc	r3
 	sjmp	L003006?
 L003009?:
-;	D:\Coding\2026\291\lab4\lab4.c:121: TMR3CN0 = 0 ;                   // Stop Timer3 and clear overflow flag
+;	D:\Coding\2026\291\lab4\lab4.c:123: TMR3CN0 = 0 ;                   // Stop Timer3 and clear overflow flag
 	mov	_TMR3CN0,#0x00
 	ret
 ;------------------------------------------------------------
@@ -687,36 +688,36 @@ L003009?:
 ;ms                        Allocated to registers r2 r3 
 ;j                         Allocated to registers r2 r3 
 ;------------------------------------------------------------
-;	D:\Coding\2026\291\lab4\lab4.c:124: void waitms (unsigned int ms)
+;	D:\Coding\2026\291\lab4\lab4.c:126: void waitms (unsigned int ms)
 ;	-----------------------------------------
 ;	 function waitms
 ;	-----------------------------------------
 _waitms:
 	mov	r2,dpl
 	mov	r3,dph
-;	D:\Coding\2026\291\lab4\lab4.c:127: for(j=ms; j!=0; j--)
+;	D:\Coding\2026\291\lab4\lab4.c:129: for(j=ms; j!=0; j--)
 L004001?:
 	cjne	r2,#0x00,L004010?
 	cjne	r3,#0x00,L004010?
 	ret
 L004010?:
-;	D:\Coding\2026\291\lab4\lab4.c:129: Timer3us(249);
+;	D:\Coding\2026\291\lab4\lab4.c:131: Timer3us(249);
 	mov	dpl,#0xF9
 	push	ar2
 	push	ar3
 	lcall	_Timer3us
-;	D:\Coding\2026\291\lab4\lab4.c:130: Timer3us(249);
+;	D:\Coding\2026\291\lab4\lab4.c:132: Timer3us(249);
 	mov	dpl,#0xF9
 	lcall	_Timer3us
-;	D:\Coding\2026\291\lab4\lab4.c:131: Timer3us(249);
+;	D:\Coding\2026\291\lab4\lab4.c:133: Timer3us(249);
 	mov	dpl,#0xF9
 	lcall	_Timer3us
-;	D:\Coding\2026\291\lab4\lab4.c:132: Timer3us(250);
+;	D:\Coding\2026\291\lab4\lab4.c:134: Timer3us(250);
 	mov	dpl,#0xFA
 	lcall	_Timer3us
 	pop	ar3
 	pop	ar2
-;	D:\Coding\2026\291\lab4\lab4.c:127: for(j=ms; j!=0; j--)
+;	D:\Coding\2026\291\lab4\lab4.c:129: for(j=ms; j!=0; j--)
 	dec	r2
 	cjne	r2,#0xff,L004011?
 	dec	r3
@@ -726,33 +727,33 @@ L004011?:
 ;Allocation info for local variables in function 'TIMER0_Init'
 ;------------------------------------------------------------
 ;------------------------------------------------------------
-;	D:\Coding\2026\291\lab4\lab4.c:136: void TIMER0_Init(void)
+;	D:\Coding\2026\291\lab4\lab4.c:138: void TIMER0_Init(void)
 ;	-----------------------------------------
 ;	 function TIMER0_Init
 ;	-----------------------------------------
 _TIMER0_Init:
-;	D:\Coding\2026\291\lab4\lab4.c:138: TMOD&=0b_1111_0000; // Set the bits of Timer/Counter 0 to zero
+;	D:\Coding\2026\291\lab4\lab4.c:140: TMOD&=0b_1111_0000; // Set the bits of Timer/Counter 0 to zero
 	anl	_TMOD,#0xF0
-;	D:\Coding\2026\291\lab4\lab4.c:139: TMOD|=0b_0000_0101; // Timer/Counter 0 used as a 16-bit counter
+;	D:\Coding\2026\291\lab4\lab4.c:141: TMOD|=0b_0000_0101; // Timer/Counter 0 used as a 16-bit counter
 	orl	_TMOD,#0x05
-;	D:\Coding\2026\291\lab4\lab4.c:140: TR0=0; // Stop Timer/Counter 0
+;	D:\Coding\2026\291\lab4\lab4.c:142: TR0=0; // Stop Timer/Counter 0
 	clr	_TR0
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'LCD_pulse'
 ;------------------------------------------------------------
 ;------------------------------------------------------------
-;	D:\Coding\2026\291\lab4\lab4.c:143: void LCD_pulse (void)
+;	D:\Coding\2026\291\lab4\lab4.c:145: void LCD_pulse (void)
 ;	-----------------------------------------
 ;	 function LCD_pulse
 ;	-----------------------------------------
 _LCD_pulse:
-;	D:\Coding\2026\291\lab4\lab4.c:145: LCD_E=1;
+;	D:\Coding\2026\291\lab4\lab4.c:147: LCD_E=1;
 	setb	_P2_0
-;	D:\Coding\2026\291\lab4\lab4.c:146: Timer3us(40);
+;	D:\Coding\2026\291\lab4\lab4.c:148: Timer3us(40);
 	mov	dpl,#0x28
 	lcall	_Timer3us
-;	D:\Coding\2026\291\lab4\lab4.c:147: LCD_E=0;
+;	D:\Coding\2026\291\lab4\lab4.c:149: LCD_E=0;
 	clr	_P2_0
 	ret
 ;------------------------------------------------------------
@@ -760,66 +761,66 @@ _LCD_pulse:
 ;------------------------------------------------------------
 ;x                         Allocated to registers r2 
 ;------------------------------------------------------------
-;	D:\Coding\2026\291\lab4\lab4.c:150: void LCD_byte (unsigned char x)
+;	D:\Coding\2026\291\lab4\lab4.c:152: void LCD_byte (unsigned char x)
 ;	-----------------------------------------
 ;	 function LCD_byte
 ;	-----------------------------------------
 _LCD_byte:
 	mov	r2,dpl
-;	D:\Coding\2026\291\lab4\lab4.c:153: ACC=x; //Send high nible
+;	D:\Coding\2026\291\lab4\lab4.c:155: ACC=x; //Send high nible
 	mov	_ACC,r2
-;	D:\Coding\2026\291\lab4\lab4.c:154: LCD_D7=ACC_7;
+;	D:\Coding\2026\291\lab4\lab4.c:156: LCD_D7=ACC_7;
 	mov	c,_ACC_7
 	mov	_P1_0,c
-;	D:\Coding\2026\291\lab4\lab4.c:155: LCD_D6=ACC_6;
+;	D:\Coding\2026\291\lab4\lab4.c:157: LCD_D6=ACC_6;
 	mov	c,_ACC_6
 	mov	_P1_1,c
-;	D:\Coding\2026\291\lab4\lab4.c:156: LCD_D5=ACC_5;
+;	D:\Coding\2026\291\lab4\lab4.c:158: LCD_D5=ACC_5;
 	mov	c,_ACC_5
 	mov	_P1_2,c
-;	D:\Coding\2026\291\lab4\lab4.c:157: LCD_D4=ACC_4;
+;	D:\Coding\2026\291\lab4\lab4.c:159: LCD_D4=ACC_4;
 	mov	c,_ACC_4
 	mov	_P1_3,c
-;	D:\Coding\2026\291\lab4\lab4.c:158: LCD_pulse();
+;	D:\Coding\2026\291\lab4\lab4.c:160: LCD_pulse();
 	push	ar2
 	lcall	_LCD_pulse
-;	D:\Coding\2026\291\lab4\lab4.c:159: Timer3us(40);
+;	D:\Coding\2026\291\lab4\lab4.c:161: Timer3us(40);
 	mov	dpl,#0x28
 	lcall	_Timer3us
 	pop	ar2
-;	D:\Coding\2026\291\lab4\lab4.c:160: ACC=x; //Send low nible
+;	D:\Coding\2026\291\lab4\lab4.c:162: ACC=x; //Send low nible
 	mov	_ACC,r2
-;	D:\Coding\2026\291\lab4\lab4.c:161: LCD_D7=ACC_3;
+;	D:\Coding\2026\291\lab4\lab4.c:163: LCD_D7=ACC_3;
 	mov	c,_ACC_3
 	mov	_P1_0,c
-;	D:\Coding\2026\291\lab4\lab4.c:162: LCD_D6=ACC_2;
+;	D:\Coding\2026\291\lab4\lab4.c:164: LCD_D6=ACC_2;
 	mov	c,_ACC_2
 	mov	_P1_1,c
-;	D:\Coding\2026\291\lab4\lab4.c:163: LCD_D5=ACC_1;
+;	D:\Coding\2026\291\lab4\lab4.c:165: LCD_D5=ACC_1;
 	mov	c,_ACC_1
 	mov	_P1_2,c
-;	D:\Coding\2026\291\lab4\lab4.c:164: LCD_D4=ACC_0;
+;	D:\Coding\2026\291\lab4\lab4.c:166: LCD_D4=ACC_0;
 	mov	c,_ACC_0
 	mov	_P1_3,c
-;	D:\Coding\2026\291\lab4\lab4.c:165: LCD_pulse();
+;	D:\Coding\2026\291\lab4\lab4.c:167: LCD_pulse();
 	ljmp	_LCD_pulse
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'WriteData'
 ;------------------------------------------------------------
 ;x                         Allocated to registers r2 
 ;------------------------------------------------------------
-;	D:\Coding\2026\291\lab4\lab4.c:168: void WriteData (unsigned char x)
+;	D:\Coding\2026\291\lab4\lab4.c:170: void WriteData (unsigned char x)
 ;	-----------------------------------------
 ;	 function WriteData
 ;	-----------------------------------------
 _WriteData:
 	mov	r2,dpl
-;	D:\Coding\2026\291\lab4\lab4.c:170: LCD_RS=1;
+;	D:\Coding\2026\291\lab4\lab4.c:172: LCD_RS=1;
 	setb	_P1_7
-;	D:\Coding\2026\291\lab4\lab4.c:171: LCD_byte(x);
+;	D:\Coding\2026\291\lab4\lab4.c:173: LCD_byte(x);
 	mov	dpl,r2
 	lcall	_LCD_byte
-;	D:\Coding\2026\291\lab4\lab4.c:172: waitms(2);
+;	D:\Coding\2026\291\lab4\lab4.c:174: waitms(2);
 	mov	dptr,#0x0002
 	ljmp	_waitms
 ;------------------------------------------------------------
@@ -827,53 +828,53 @@ _WriteData:
 ;------------------------------------------------------------
 ;x                         Allocated to registers r2 
 ;------------------------------------------------------------
-;	D:\Coding\2026\291\lab4\lab4.c:175: void WriteCommand (unsigned char x)
+;	D:\Coding\2026\291\lab4\lab4.c:177: void WriteCommand (unsigned char x)
 ;	-----------------------------------------
 ;	 function WriteCommand
 ;	-----------------------------------------
 _WriteCommand:
 	mov	r2,dpl
-;	D:\Coding\2026\291\lab4\lab4.c:177: LCD_RS=0;
+;	D:\Coding\2026\291\lab4\lab4.c:179: LCD_RS=0;
 	clr	_P1_7
-;	D:\Coding\2026\291\lab4\lab4.c:178: LCD_byte(x);
+;	D:\Coding\2026\291\lab4\lab4.c:180: LCD_byte(x);
 	mov	dpl,r2
 	lcall	_LCD_byte
-;	D:\Coding\2026\291\lab4\lab4.c:179: waitms(5);
+;	D:\Coding\2026\291\lab4\lab4.c:181: waitms(5);
 	mov	dptr,#0x0005
 	ljmp	_waitms
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'LCD_4BIT'
 ;------------------------------------------------------------
 ;------------------------------------------------------------
-;	D:\Coding\2026\291\lab4\lab4.c:182: void LCD_4BIT (void)
+;	D:\Coding\2026\291\lab4\lab4.c:184: void LCD_4BIT (void)
 ;	-----------------------------------------
 ;	 function LCD_4BIT
 ;	-----------------------------------------
 _LCD_4BIT:
-;	D:\Coding\2026\291\lab4\lab4.c:184: LCD_E=0; // Resting state of LCD's enable is zero
+;	D:\Coding\2026\291\lab4\lab4.c:186: LCD_E=0; // Resting state of LCD's enable is zero
 	clr	_P2_0
-;	D:\Coding\2026\291\lab4\lab4.c:186: waitms(20);
+;	D:\Coding\2026\291\lab4\lab4.c:188: waitms(20);
 	mov	dptr,#0x0014
 	lcall	_waitms
-;	D:\Coding\2026\291\lab4\lab4.c:188: WriteCommand(0x33);
+;	D:\Coding\2026\291\lab4\lab4.c:190: WriteCommand(0x33);
 	mov	dpl,#0x33
 	lcall	_WriteCommand
-;	D:\Coding\2026\291\lab4\lab4.c:189: WriteCommand(0x33);
+;	D:\Coding\2026\291\lab4\lab4.c:191: WriteCommand(0x33);
 	mov	dpl,#0x33
 	lcall	_WriteCommand
-;	D:\Coding\2026\291\lab4\lab4.c:190: WriteCommand(0x32); // Change to 4-bit mode
+;	D:\Coding\2026\291\lab4\lab4.c:192: WriteCommand(0x32); // Change to 4-bit mode
 	mov	dpl,#0x32
 	lcall	_WriteCommand
-;	D:\Coding\2026\291\lab4\lab4.c:193: WriteCommand(0x28);
+;	D:\Coding\2026\291\lab4\lab4.c:195: WriteCommand(0x28);
 	mov	dpl,#0x28
 	lcall	_WriteCommand
-;	D:\Coding\2026\291\lab4\lab4.c:194: WriteCommand(0x0c);
+;	D:\Coding\2026\291\lab4\lab4.c:196: WriteCommand(0x0c);
 	mov	dpl,#0x0C
 	lcall	_WriteCommand
-;	D:\Coding\2026\291\lab4\lab4.c:195: WriteCommand(0x01); // Clear screen command (takes some time)
+;	D:\Coding\2026\291\lab4\lab4.c:197: WriteCommand(0x01); // Clear screen command (takes some time)
 	mov	dpl,#0x01
 	lcall	_WriteCommand
-;	D:\Coding\2026\291\lab4\lab4.c:196: waitms(20); // Wait for clear screen command to finsih.
+;	D:\Coding\2026\291\lab4\lab4.c:198: waitms(20); // Wait for clear screen command to finsih.
 	mov	dptr,#0x0014
 	ljmp	_waitms
 ;------------------------------------------------------------
@@ -883,7 +884,7 @@ _LCD_4BIT:
 ;string                    Allocated to registers r2 r3 r4 
 ;j                         Allocated to registers r5 r6 
 ;------------------------------------------------------------
-;	D:\Coding\2026\291\lab4\lab4.c:199: void LCDprint(char * string, unsigned char line, bit clear)
+;	D:\Coding\2026\291\lab4\lab4.c:201: void LCDprint(char * string, unsigned char line, bit clear)
 ;	-----------------------------------------
 ;	 function LCDprint
 ;	-----------------------------------------
@@ -891,7 +892,7 @@ _LCDprint:
 	mov	r2,dpl
 	mov	r3,dph
 	mov	r4,b
-;	D:\Coding\2026\291\lab4\lab4.c:203: WriteCommand(line==2?0xc0:0x80);
+;	D:\Coding\2026\291\lab4\lab4.c:205: WriteCommand(line==2?0xc0:0x80);
 	mov	a,#0x02
 	cjne	a,_LCDprint_PARM_2,L011013?
 	mov	r5,#0xC0
@@ -904,13 +905,13 @@ L011014?:
 	push	ar3
 	push	ar4
 	lcall	_WriteCommand
-;	D:\Coding\2026\291\lab4\lab4.c:204: waitms(5);
+;	D:\Coding\2026\291\lab4\lab4.c:206: waitms(5);
 	mov	dptr,#0x0005
 	lcall	_waitms
 	pop	ar4
 	pop	ar3
 	pop	ar2
-;	D:\Coding\2026\291\lab4\lab4.c:205: for(j=0; string[j]!=0; j++)	WriteData(string[j]);// Write the message
+;	D:\Coding\2026\291\lab4\lab4.c:207: for(j=0; string[j]!=0; j++)	WriteData(string[j]);// Write the message
 	mov	r5,#0x00
 	mov	r6,#0x00
 L011003?:
@@ -944,7 +945,7 @@ L011003?:
 	inc	r6
 	sjmp	L011003?
 L011006?:
-;	D:\Coding\2026\291\lab4\lab4.c:206: if(clear) for(; j<CHARS_PER_LINE; j++) WriteData(' '); // Clear the rest of the line
+;	D:\Coding\2026\291\lab4\lab4.c:208: if(clear) for(; j<CHARS_PER_LINE; j++) WriteData(' '); // Clear the rest of the line
 	jnb	_LCDprint_PARM_3,L011011?
 	mov	ar2,r5
 	mov	ar3,r6
@@ -979,12 +980,12 @@ L011011?:
 ;j                         Allocated to registers r5 
 ;print_length              Allocated with name '_float_to_str_print_length_1_66'
 ;------------------------------------------------------------
-;	D:\Coding\2026\291\lab4\lab4.c:210: void float_to_str(float number, char* buffer){
+;	D:\Coding\2026\291\lab4\lab4.c:212: void float_to_str(float number, char* buffer){
 ;	-----------------------------------------
 ;	 function float_to_str
 ;	-----------------------------------------
 _float_to_str:
-;	D:\Coding\2026\291\lab4\lab4.c:217: number_holder = (unsigned int)number;
+;	D:\Coding\2026\291\lab4\lab4.c:219: number_holder = (unsigned int)number;
 	mov	_float_to_str_number_1_65,dpl
 	mov	(_float_to_str_number_1_65 + 1),dph
 	mov	(_float_to_str_number_1_65 + 2),b
@@ -994,22 +995,22 @@ _float_to_str:
 	mov	r7,dph
 	mov	ar2,r6
 	mov	ar3,r7
-;	D:\Coding\2026\291\lab4\lab4.c:219: if(number_holder == 0) {
+;	D:\Coding\2026\291\lab4\lab4.c:221: if(number_holder == 0) {
 	mov	a,r2
 	orl	a,r3
 	jnz	L012018?
-;	D:\Coding\2026\291\lab4\lab4.c:220: temp[0] = '0';
+;	D:\Coding\2026\291\lab4\lab4.c:222: temp[0] = '0';
 	mov	_float_to_str_temp_1_66,#0x30
-;	D:\Coding\2026\291\lab4\lab4.c:221: i = 1;
+;	D:\Coding\2026\291\lab4\lab4.c:223: i = 1;
 	ljmp	L012006?
-;	D:\Coding\2026\291\lab4\lab4.c:226: while(number_holder > 0){
+;	D:\Coding\2026\291\lab4\lab4.c:228: while(number_holder > 0){
 L012018?:
 	mov	_float_to_str_i_1_66,#0x00
 L012001?:
 	mov	a,r2
 	orl	a,r3
 	jz	L012003?
-;	D:\Coding\2026\291\lab4\lab4.c:227: temp[i] = (number_holder % 10) + '0';
+;	D:\Coding\2026\291\lab4\lab4.c:229: temp[i] = (number_holder % 10) + '0';
 	mov	a,_float_to_str_i_1_66
 	add	a,#_float_to_str_temp_1_66
 	mov	r0,a
@@ -1033,7 +1034,7 @@ L012001?:
 	mov	a,#0x30
 	add	a,r5
 	mov	@r0,a
-;	D:\Coding\2026\291\lab4\lab4.c:228: number_holder = number_holder / 10;
+;	D:\Coding\2026\291\lab4\lab4.c:230: number_holder = number_holder / 10;
 	mov	__divuint_PARM_2,#0x0A
 	clr	a
 	mov	(__divuint_PARM_2 + 1),a
@@ -1046,11 +1047,11 @@ L012001?:
 	mov	r3,dph
 	pop	ar7
 	pop	ar6
-;	D:\Coding\2026\291\lab4\lab4.c:229: i++;
+;	D:\Coding\2026\291\lab4\lab4.c:231: i++;
 	inc	_float_to_str_i_1_66
 	sjmp	L012001?
 L012003?:
-;	D:\Coding\2026\291\lab4\lab4.c:232: number_holder = (unsigned int)(number * 100) - (unsigned int)(number) * 100;
+;	D:\Coding\2026\291\lab4\lab4.c:234: number_holder = (unsigned int)(number * 100) - (unsigned int)(number) * 100;
 	push	ar6
 	push	ar7
 	push	_float_to_str_number_1_65
@@ -1096,14 +1097,14 @@ L012003?:
 	mov	a,r5
 	subb	a,r7
 	mov	r3,a
-;	D:\Coding\2026\291\lab4\lab4.c:253: buffer[j+3] = '\0';
+;	D:\Coding\2026\291\lab4\lab4.c:255: buffer[j+3] = '\0';
 	pop	ar7
 	pop	ar6
-;	D:\Coding\2026\291\lab4\lab4.c:233: for(j = 0; j < 2; j++){
+;	D:\Coding\2026\291\lab4\lab4.c:235: for(j = 0; j < 2; j++){
 	mov	r4,_float_to_str_i_1_66
 	mov	r5,#0x02
 L012009?:
-;	D:\Coding\2026\291\lab4\lab4.c:234: temp[i] = (number_holder % 10) + '0';
+;	D:\Coding\2026\291\lab4\lab4.c:236: temp[i] = (number_holder % 10) + '0';
 	mov	a,r4
 	add	a,#_float_to_str_temp_1_66
 	mov	r0,a
@@ -1127,7 +1128,7 @@ L012009?:
 	mov	a,#0x30
 	add	a,r6
 	mov	@r0,a
-;	D:\Coding\2026\291\lab4\lab4.c:235: number_holder = number_holder / 10;
+;	D:\Coding\2026\291\lab4\lab4.c:237: number_holder = number_holder / 10;
 	mov	__divuint_PARM_2,#0x0A
 	clr	a
 	mov	(__divuint_PARM_2 + 1),a
@@ -1140,16 +1141,16 @@ L012009?:
 	mov	r3,dph
 	pop	ar5
 	pop	ar4
-;	D:\Coding\2026\291\lab4\lab4.c:236: i++;
+;	D:\Coding\2026\291\lab4\lab4.c:238: i++;
 	inc	r4
 	djnz	r5,L012009?
-;	D:\Coding\2026\291\lab4\lab4.c:233: for(j = 0; j < 2; j++){
-;	D:\Coding\2026\291\lab4\lab4.c:239: print_length = i - 1;
+;	D:\Coding\2026\291\lab4\lab4.c:235: for(j = 0; j < 2; j++){
+;	D:\Coding\2026\291\lab4\lab4.c:241: print_length = i - 1;
 	mov	a,r4
 	dec	a
 	mov	_float_to_str_print_length_1_66,a
 L012006?:
-;	D:\Coding\2026\291\lab4\lab4.c:243: for(i = print_length-2; i >= 0; i--){
+;	D:\Coding\2026\291\lab4\lab4.c:245: for(i = print_length-2; i >= 0; i--){
 	mov	a,_float_to_str_print_length_1_66
 	add	a,#0xfe
 	mov	r3,a
@@ -1157,7 +1158,7 @@ L012006?:
 L012010?:
 	mov	a,r3
 	jb	acc.7,L012013?
-;	D:\Coding\2026\291\lab4\lab4.c:244: buffer[j] = temp[i];
+;	D:\Coding\2026\291\lab4\lab4.c:246: buffer[j] = temp[i];
 	mov	a,r4
 	add	a,_float_to_str_PARM_2
 	mov	r5,a
@@ -1174,13 +1175,13 @@ L012010?:
 	mov	b,r7
 	mov	a,r2
 	lcall	__gptrput
-;	D:\Coding\2026\291\lab4\lab4.c:245: j++;	
+;	D:\Coding\2026\291\lab4\lab4.c:247: j++;	
 	inc	r4
-;	D:\Coding\2026\291\lab4\lab4.c:243: for(i = print_length-2; i >= 0; i--){
+;	D:\Coding\2026\291\lab4\lab4.c:245: for(i = print_length-2; i >= 0; i--){
 	dec	r3
 	sjmp	L012010?
 L012013?:
-;	D:\Coding\2026\291\lab4\lab4.c:248: buffer[j] = '.';
+;	D:\Coding\2026\291\lab4\lab4.c:250: buffer[j] = '.';
 	mov	a,r4
 	add	a,_float_to_str_PARM_2
 	mov	r2,a
@@ -1193,7 +1194,7 @@ L012013?:
 	mov	b,r5
 	mov	a,#0x2E
 	lcall	__gptrput
-;	D:\Coding\2026\291\lab4\lab4.c:251: buffer[j+1] = temp[print_length];
+;	D:\Coding\2026\291\lab4\lab4.c:253: buffer[j+1] = temp[print_length];
 	mov	a,r4
 	rlc	a
 	subb	a,acc
@@ -1220,7 +1221,7 @@ L012013?:
 	mov	b,r6
 	mov	a,r7
 	lcall	__gptrput
-;	D:\Coding\2026\291\lab4\lab4.c:252: buffer[j+2] = temp[print_length-1];
+;	D:\Coding\2026\291\lab4\lab4.c:254: buffer[j+2] = temp[print_length-1];
 	mov	a,#0x02
 	add	a,r4
 	mov	r3,a
@@ -1244,7 +1245,7 @@ L012013?:
 	mov	b,r6
 	mov	a,r7
 	lcall	__gptrput
-;	D:\Coding\2026\291\lab4\lab4.c:253: buffer[j+3] = '\0';
+;	D:\Coding\2026\291\lab4\lab4.c:255: buffer[j+3] = '\0';
 	mov	a,#0x03
 	add	a,r4
 	mov	r4,a
@@ -1266,24 +1267,25 @@ L012013?:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
-;F                         Allocated to registers 
-;capacitance               Allocated to registers r2 r3 r4 r5 
+;F                         Allocated to registers r2 r3 r4 r5 
+;capacitance               Allocated with name '_main_capacitance_1_73'
+;inductance                Allocated to registers r6 r7 r0 r1 
 ;num_buff                  Allocated with name '_main_num_buff_1_73'
 ;print_buff                Allocated with name '_main_print_buff_1_73'
 ;------------------------------------------------------------
-;	D:\Coding\2026\291\lab4\lab4.c:256: void main (void) 
+;	D:\Coding\2026\291\lab4\lab4.c:258: void main (void) 
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
 _main:
-;	D:\Coding\2026\291\lab4\lab4.c:263: TIMER0_Init();
+;	D:\Coding\2026\291\lab4\lab4.c:266: TIMER0_Init();
 	lcall	_TIMER0_Init
-;	D:\Coding\2026\291\lab4\lab4.c:264: LCD_4BIT();
+;	D:\Coding\2026\291\lab4\lab4.c:267: LCD_4BIT();
 	lcall	_LCD_4BIT
-;	D:\Coding\2026\291\lab4\lab4.c:266: waitms(500); // Give PuTTY a chance to start.
+;	D:\Coding\2026\291\lab4\lab4.c:269: waitms(500); // Give PuTTY a chance to start.
 	mov	dptr,#0x01F4
 	lcall	_waitms
-;	D:\Coding\2026\291\lab4\lab4.c:267: printf("\x1b[2J"); // Clear screen using ANSI escape sequence.
+;	D:\Coding\2026\291\lab4\lab4.c:270: printf("\x1b[2J"); // Clear screen using ANSI escape sequence.
 	mov	a,#__str_0
 	push	acc
 	mov	a,#(__str_0 >> 8)
@@ -1294,8 +1296,8 @@ _main:
 	dec	sp
 	dec	sp
 	dec	sp
-;	D:\Coding\2026\291\lab4\lab4.c:272: __FILE__, __DATE__, __TIME__);
-;	D:\Coding\2026\291\lab4\lab4.c:271: "Compiled: %s, %s\n\n",
+;	D:\Coding\2026\291\lab4\lab4.c:275: __FILE__, __DATE__, __TIME__);
+;	D:\Coding\2026\291\lab4\lab4.c:274: "Compiled: %s, %s\n\n",
 	mov	a,#__str_4
 	push	acc
 	mov	a,#(__str_4 >> 8)
@@ -1324,24 +1326,24 @@ _main:
 	mov	a,sp
 	add	a,#0xf4
 	mov	sp,a
-;	D:\Coding\2026\291\lab4\lab4.c:274: while(1)
+;	D:\Coding\2026\291\lab4\lab4.c:277: while(1)
 L013002?:
-;	D:\Coding\2026\291\lab4\lab4.c:276: TL0=0;
+;	D:\Coding\2026\291\lab4\lab4.c:279: TL0=0;
 	mov	_TL0,#0x00
-;	D:\Coding\2026\291\lab4\lab4.c:277: TH0=0;
+;	D:\Coding\2026\291\lab4\lab4.c:280: TH0=0;
 	mov	_TH0,#0x00
-;	D:\Coding\2026\291\lab4\lab4.c:278: overflow_count=0;
+;	D:\Coding\2026\291\lab4\lab4.c:281: overflow_count=0;
 	mov	_overflow_count,#0x00
-;	D:\Coding\2026\291\lab4\lab4.c:279: TF0=0;
+;	D:\Coding\2026\291\lab4\lab4.c:282: TF0=0;
 	clr	_TF0
-;	D:\Coding\2026\291\lab4\lab4.c:280: TR0=1; // Start Timer/Counter 0
+;	D:\Coding\2026\291\lab4\lab4.c:283: TR0=1; // Start Timer/Counter 0
 	setb	_TR0
-;	D:\Coding\2026\291\lab4\lab4.c:281: waitms(1000);
+;	D:\Coding\2026\291\lab4\lab4.c:284: waitms(1000);
 	mov	dptr,#0x03E8
 	lcall	_waitms
-;	D:\Coding\2026\291\lab4\lab4.c:282: TR0=0; // Stop Timer/Counter 0
+;	D:\Coding\2026\291\lab4\lab4.c:285: TR0=0; // Stop Timer/Counter 0
 	clr	_TR0
-;	D:\Coding\2026\291\lab4\lab4.c:283: F=overflow_count*0x10000L+TH0*0x100L+TL0;
+;	D:\Coding\2026\291\lab4\lab4.c:286: F=overflow_count*0x10000L+TH0*0x100L+TL0;
 	mov	r2,_overflow_count
 	mov	r3,#0x00
 	mov	ar5,r3
@@ -1354,8 +1356,7 @@ L013002?:
 	mov	ar1,r0
 	mov	ar0,r7
 	mov	ar7,r6
-	mov	r6,#0x00
-	mov	a,r6
+	clr	a
 	add	a,r2
 	mov	r2,a
 	mov	a,r7
@@ -1376,114 +1377,124 @@ L013002?:
 	mov	r1,a
 	mov	a,r6
 	add	a,r2
-	mov	__mullong_PARM_2,a
+	mov	r2,a
 	mov	a,r7
 	addc	a,r3
-	mov	(__mullong_PARM_2 + 1),a
+	mov	r3,a
 	mov	a,r0
 	addc	a,r4
-	mov	(__mullong_PARM_2 + 2),a
+	mov	r4,a
 	mov	a,r1
 	addc	a,r5
-	mov	(__mullong_PARM_2 + 3),a
-;	D:\Coding\2026\291\lab4\lab4.c:286: capacitance = 1440000.0/((RA+2*RB)*F);
-	mov	dptr,#0x7317
-	clr	a
-	mov	b,a
-	lcall	__mullong
-	lcall	___ulong2fs
-	mov	r2,dpl
-	mov	r3,dph
-	mov	r4,b
+;	D:\Coding\2026\291\lab4\lab4.c:307: inductance = 1/(LA*F/1000); // inductance measured in H
 	mov	r5,a
+	mov	dpl,r2
+	mov	dph,r3
+	mov	b,r4
 	push	ar2
 	push	ar3
 	push	ar4
 	push	ar5
-	mov	dptr,#0xC800
-	mov	b,#0xAF
-	mov	a,#0x49
-	lcall	___fsdiv
-	mov	r2,dpl
-	mov	r3,dph
-	mov	r4,b
-	mov	r5,a
+	lcall	___ulong2fs
+	mov	r6,dpl
+	mov	r7,dph
+	mov	r0,b
+	mov	r1,a
+	push	ar6
+	push	ar7
+	push	ar0
+	push	ar1
+	mov	dptr,#0x0C62
+	mov	b,#0x8A
+	mov	a,#0x3E
+	lcall	___fsmul
+	mov	r6,dpl
+	mov	r7,dph
+	mov	r0,b
+	mov	r1,a
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	D:\Coding\2026\291\lab4\lab4.c:287: capacitance = capacitance * 1000;
-	push	ar2
-	push	ar3
-	push	ar4
-	push	ar5
+	clr	a
+	push	acc
+	push	acc
+	mov	a,#0x7A
+	push	acc
+	mov	a,#0x44
+	push	acc
+	mov	dpl,r6
+	mov	dph,r7
+	mov	b,r0
+	mov	a,r1
+	lcall	___fsdiv
+	mov	r6,dpl
+	mov	r7,dph
+	mov	r0,b
+	mov	r1,a
+	mov	a,sp
+	add	a,#0xfc
+	mov	sp,a
+	push	ar6
+	push	ar7
+	push	ar0
+	push	ar1
+	mov	dptr,#0x0000
+	mov	b,#0x80
+	mov	a,#0x3F
+	lcall	___fsdiv
+	mov	r6,dpl
+	mov	r7,dph
+	mov	r0,b
+	mov	r1,a
+	mov	a,sp
+	add	a,#0xfc
+	mov	sp,a
+;	D:\Coding\2026\291\lab4\lab4.c:308: inductance = inductance * 1000; // inductance in mH
+	push	ar6
+	push	ar7
+	push	ar0
+	push	ar1
 	mov	dptr,#0x0000
 	mov	b,#0x7A
 	mov	a,#0x44
 	lcall	___fsmul
-	mov	r2,dpl
-	mov	r3,dph
-	mov	r4,b
-	mov	r5,a
+	mov	r6,dpl
+	mov	r7,dph
+	mov	r0,b
+	mov	r1,a
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	D:\Coding\2026\291\lab4\lab4.c:290: float_to_str(capacitance, num_buff);
-	mov	_float_to_str_PARM_2,#_main_num_buff_1_73
-	mov	(_float_to_str_PARM_2 + 1),#0x00
-	mov	(_float_to_str_PARM_2 + 2),#0x40
-	mov	dpl,r2
-	mov	dph,r3
-	mov	b,r4
-	mov	a,r5
-	lcall	_float_to_str
-;	D:\Coding\2026\291\lab4\lab4.c:294: strcpy(print_buff, "C = ");
-	mov	_strcpy_PARM_2,#__str_5
-	mov	(_strcpy_PARM_2 + 1),#(__str_5 >> 8)
-	mov	(_strcpy_PARM_2 + 2),#0x80
-	mov	dptr,#_main_print_buff_1_73
-	mov	b,#0x40
-	lcall	_strcpy
-;	D:\Coding\2026\291\lab4\lab4.c:295: strcat(print_buff, num_buff);
-	mov	_strcat_PARM_2,#_main_num_buff_1_73
-	mov	(_strcat_PARM_2 + 1),#0x00
-	mov	(_strcat_PARM_2 + 2),#0x40
-	mov	dptr,#_main_print_buff_1_73
-	mov	b,#0x40
-	lcall	_strcat
-;	D:\Coding\2026\291\lab4\lab4.c:296: strcat(print_buff, " nF");
-	mov	_strcat_PARM_2,#__str_6
-	mov	(_strcat_PARM_2 + 1),#(__str_6 >> 8)
-	mov	(_strcat_PARM_2 + 2),#0x80
-	mov	dptr,#_main_print_buff_1_73
-	mov	b,#0x40
-	lcall	_strcat
-;	D:\Coding\2026\291\lab4\lab4.c:298: LCDprint(print_buff, 1, 1);
-	mov	_LCDprint_PARM_2,#0x01
-	setb	_LCDprint_PARM_3
-	mov	dptr,#_main_print_buff_1_73
-	mov	b,#0x40
-	lcall	_LCDprint
-;	D:\Coding\2026\291\lab4\lab4.c:299: printf("%s\n", print_buff); 
-	mov	a,#_main_print_buff_1_73
+;	D:\Coding\2026\291\lab4\lab4.c:309: printf("%f mH\n", inductance);
+	push	ar6
+	push	ar7
+	push	ar0
+	push	ar1
+	mov	a,#__str_5
 	push	acc
-	mov	a,#(_main_print_buff_1_73 >> 8)
-	push	acc
-	mov	a,#0x40
-	push	acc
-	mov	a,#__str_7
-	push	acc
-	mov	a,#(__str_7 >> 8)
+	mov	a,#(__str_5 >> 8)
 	push	acc
 	mov	a,#0x80
 	push	acc
 	lcall	_printf
 	mov	a,sp
-	add	a,#0xfa
+	add	a,#0xf9
 	mov	sp,a
-;	D:\Coding\2026\291\lab4\lab4.c:302: printf("\x1b[0K"); // ANSI: Clear from cursor to end of line.
-	mov	a,#__str_8
+;	D:\Coding\2026\291\lab4\lab4.c:311: printf("\rf=%luHz\n", F);
+	mov	a,#__str_6
 	push	acc
-	mov	a,#(__str_8 >> 8)
+	mov	a,#(__str_6 >> 8)
+	push	acc
+	mov	a,#0x80
+	push	acc
+	lcall	_printf
+	mov	a,sp
+	add	a,#0xf9
+	mov	sp,a
+;	D:\Coding\2026\291\lab4\lab4.c:312: printf("\x1b[0K"); // ANSI: Clear from cursor to end of line.
+	mov	a,#__str_7
+	push	acc
+	mov	a,#(__str_7 >> 8)
 	push	acc
 	mov	a,#0x80
 	push	acc
@@ -1525,22 +1536,21 @@ __str_2:
 	db 'lab4.c'
 	db 0x00
 __str_3:
-	db 'Feb 22 2026'
+	db 'Feb 23 2026'
 	db 0x00
 __str_4:
-	db '17:52:38'
+	db '14:18:37'
 	db 0x00
 __str_5:
-	db 'C = '
-	db 0x00
-__str_6:
-	db ' nF'
-	db 0x00
-__str_7:
-	db '%s'
+	db '%f mH'
 	db 0x0A
 	db 0x00
-__str_8:
+__str_6:
+	db 0x0D
+	db 'f=%luHz'
+	db 0x0A
+	db 0x00
+__str_7:
 	db 0x1B
 	db '[0K'
 	db 0x00

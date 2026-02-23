@@ -6,12 +6,16 @@ lab4
 --model-small
 </OPTC51>
 
+<PRINTF_FLOAT>
+printf_float
+</PRINTF_FLOAT>
+
 <SEGMENTS>
 R_GSINIT,code,0000,NO
 R_BSEG,bit,0001,NO
 R_XSEG,xdata,0000,NO
 BIT_BANK,data,0000,OV
-R_CONST,code,0099,NO
+R_CONST,code,009D,NO
 rbank0,data,0000,OV
 R_PSEG,xdata,0000,NO
 R_DINIT,code,0000,NO
@@ -21,7 +25,7 @@ R_IXSEG,xdata,0000,NO
 R_ISEG,idata,0000,NO
 R_HOME,code,0000,NO
 R_XINIT,code,0000,NO
-R_CSEG,code,0527,NO
+R_CSEG,code,0524,NO
 </SEGMENTS>
 
 <LOCALS>
@@ -50,10 +54,9 @@ __str_2,R_CONST,0053,0000
 __str_3,R_CONST,0072,0000
 __str_4,R_CONST,007E,0000
 __str_5,R_CONST,0087,0000
-__str_6,R_CONST,008C,0000
+__str_6,R_CONST,008E,0000
 L011006?,R_CSEG,01B1,0000
-__str_7,R_CONST,0090,0000
-__str_8,R_CONST,0094,0000
+__str_7,R_CONST,0098,0000
 L011003?,R_CSEG,017D,0000
 L003019?,R_CSEG,007C,0000
 L012009?,R_CSEG,02A8,0000
@@ -87,20 +90,14 @@ _waitms,R_CSEG,0085,0000
 
 <EXTERNALS>
 __gptrget,any,0000,0000
-__mullong,any,0000,0000
 __divuint_PARM_2,any,0000,0000
 ___fsmul,any,0000,0000
 __mulint,any,0000,0000
-__mullong_PARM_2,any,0000,0000
 _printf,any,0000,0000
 __moduint_PARM_2,any,0000,0000
-_strcat_PARM_2,any,0000,0000
 __mulint_PARM_2,any,0000,0000
-_strcpy_PARM_2,any,0000,0000
 ___ulong2fs,any,0000,0000
-_strcat,any,0000,0000
 __gptrput,any,0000,0000
-_strcpy,any,0000,0000
 __moduint,any,0000,0000
 ___fs2uint,any,0000,0000
 _crt0,any,0000,0000
@@ -653,8 +650,7 @@ AE 8C
 88 01
 8F 00
 8E 07
-7E 00
-EE
+E4
 2A
 FA
 EF
@@ -675,105 +671,119 @@ F8
 F9
 EE
 2A
-F5 data8(__mullong_PARM_2;)
+FA
 EF
 3B
-F5 data8(__mullong_PARM_2;0x0001;+;)
+FB
 E8
 3C
-F5 data8(__mullong_PARM_2;0x0002;+;)
+FC
 E9
 3D
-F5 data8(__mullong_PARM_2;0x0003;+;)
-90 73 17
-E4
-F5 F0
-12 addr16(__mullong;)  
-12 addr16(___ulong2fs;)  
-AA 82
-AB 83
-AC F0
 FD
+8A 82
+8B 83
+8C F0
 C0 02
 C0 03
 C0 04
 C0 05
-90 C8 00
-75 F0 AF
-74 49
-12 addr16(___fsdiv;)  
-AA 82
-AB 83
-AC F0
-FD
+12 addr16(___ulong2fs;)  
+AE 82
+AF 83
+A8 F0
+F9
+C0 06
+C0 07
+C0 00
+C0 01
+90 0C 62
+75 F0 8A
+74 3E
+12 addr16(___fsmul;)  
+AE 82
+AF 83
+A8 F0
+F9
 E5 81
 24 FC
 F5 81
-C0 02
-C0 03
-C0 04
-C0 05
+E4
+C0 E0
+C0 E0
+74 7A
+C0 E0
+74 44
+C0 E0
+8E 82
+8F 83
+88 F0
+E9
+12 addr16(___fsdiv;)  
+AE 82
+AF 83
+A8 F0
+F9
+E5 81
+24 FC
+F5 81
+C0 06
+C0 07
+C0 00
+C0 01
+90 00 00
+75 F0 80
+74 3F
+12 addr16(___fsdiv;)  
+AE 82
+AF 83
+A8 F0
+F9
+E5 81
+24 FC
+F5 81
+C0 06
+C0 07
+C0 00
+C0 01
 90 00 00
 75 F0 7A
 74 44
 12 addr16(___fsmul;)  
-AA 82
-AB 83
-AC F0
-FD
+AE 82
+AF 83
+A8 F0
+F9
 E5 81
 24 FC
 F5 81
-75 data8(_float_to_str_PARM_2;) data8(_main_num_buff_1_73;)
-75 data8(_float_to_str_PARM_2;0x0001;+;) 00
-75 data8(_float_to_str_PARM_2;0x0002;+;) 40
-8A 82
-8B 83
-8C F0
-ED
-12 addr16(_float_to_str;)  
-75 data8(_strcpy_PARM_2;) data8(__str_5;)
-75 data8(_strcpy_PARM_2;0x0001;+;) data8(__str_5;0x0008;>>;)
-75 data8(_strcpy_PARM_2;0x0002;+;) 80
-90 data16(_main_print_buff_1_73;)  
-75 F0 40
-12 addr16(_strcpy;)  
-75 data8(_strcat_PARM_2;) data8(_main_num_buff_1_73;)
-75 data8(_strcat_PARM_2;0x0001;+;) 00
-75 data8(_strcat_PARM_2;0x0002;+;) 40
-90 data16(_main_print_buff_1_73;)  
-75 F0 40
-12 addr16(_strcat;)  
-75 data8(_strcat_PARM_2;) data8(__str_6;)
-75 data8(_strcat_PARM_2;0x0001;+;) data8(__str_6;0x0008;>>;)
-75 data8(_strcat_PARM_2;0x0002;+;) 80
-90 data16(_main_print_buff_1_73;)  
-75 F0 40
-12 addr16(_strcat;)  
-75 data8(_LCDprint_PARM_2;) 01
-D2 bit(_LCDprint_PARM_3;)
-90 data16(_main_print_buff_1_73;)  
-75 F0 40
-12 addr16(_LCDprint;)  
-74 data8(_main_print_buff_1_73;)
+C0 06
+C0 07
+C0 00
+C0 01
+74 data8(__str_5;)
 C0 E0
-74 data8(_main_print_buff_1_73;0x0008;>>;)
-C0 E0
-74 40
-C0 E0
-74 data8(__str_7;)
-C0 E0
-74 data8(__str_7;0x0008;>>;)
+74 data8(__str_5;0x0008;>>;)
 C0 E0
 74 80
 C0 E0
 12 addr16(_printf;)  
 E5 81
-24 FA
+24 F9
 F5 81
-74 data8(__str_8;)
+74 data8(__str_6;)
 C0 E0
-74 data8(__str_8;0x0008;>>;)
+74 data8(__str_6;0x0008;>>;)
+C0 E0
+74 80
+C0 E0
+12 addr16(_printf;)  
+E5 81
+24 F9
+F5 81
+74 data8(__str_7;)
+C0 E0
+74 data8(__str_7;0x0008;>>;)
 C0 E0
 74 80
 C0 E0
@@ -818,15 +828,15 @@ C0 E0
 5C
 6C 61 62 34 2E 63 
 00
-46 65 62 20 32 32 20 32 30 32 36 
+46 65 62 20 32 33 20 32 30 32 36 
 00
-31 37 3A 35 32 3A 33 38 
+31 34 3A 31 38 3A 33 37 
 00
-43 20 3D 20 
+25 66 20 6D 48 
+0A
 00
-20 6E 46 
-00
-25 73 
+0D
+66 3D 25 6C 75 48 7A 
 0A
 00
 1B

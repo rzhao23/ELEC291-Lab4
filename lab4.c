@@ -25,6 +25,8 @@
 #define RA 			9841
 #define RB			9811
 
+#define LA			0.269625737298F
+
 unsigned char overflow_count;
 
 char _c51_external_startup (void)
@@ -257,6 +259,7 @@ void main (void)
 {
 	unsigned long F;
 	float capacitance;
+	float inductance;
 	char num_buff[10];
 	char print_buff[17];
 	
@@ -282,6 +285,8 @@ void main (void)
 		TR0=0; // Stop Timer/Counter 0
 		F=overflow_count*0x10000L+TH0*0x100L+TL0;
 
+		/*
+		// capacitance calculation
 		// scaled by 1e6
 		capacitance = 1440000.0/((RA+2*RB)*F);
 		capacitance = capacitance * 1000;
@@ -297,8 +302,13 @@ void main (void)
 		
 		LCDprint(print_buff, 1, 1);
 		printf("%s\n", print_buff); 
+		*/
 
-		//printf("\rf=%luHz", F);
+		inductance = 1/(LA*F/1000); // inductance measured in H
+		inductance = inductance * 1000; // inductance in mH
+		printf("%f mH\n", inductance);
+
+		printf("\rf=%luHz\n", F);
 		printf("\x1b[0K"); // ANSI: Clear from cursor to end of line.
 	}
 	
