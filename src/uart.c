@@ -53,7 +53,7 @@ void UART_send_char(char c)
 	EA = 1;
 }
 
-void UART_send_string(char *s)
+void UART_send_string(const char *s)
 {
 	while (*s)
 	{
