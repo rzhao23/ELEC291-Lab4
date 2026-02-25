@@ -1,0 +1,148 @@
+C51 Library Source File Descriptions
+C51 standard library for the 8051 architecture -- 145 files
+
+abs.c            --  Returns absolute value of an integer.
+acosf.c          --  Computes arc cosine of a float value.
+asincosf.c       --  Shared helper for arc sine and arc cosine computation.
+asinf.c          --  Computes arc sine of a float value.
+assert.c         --  Implements assert() macro for runtime condition checks.
+atan2f.c         --  Computes arc tangent of y/x using two arguments.
+atanf.c          --  Computes arc tangent of a float value.
+atof.c           --  Converts ASCII string to floating-point number.
+atoi.c           --  Converts ASCII string to integer.
+atol.c           --  Converts ASCII string to long integer.
+bp.c             --  Breakpoint support for the CrossIDE debugger.
+bpx.c            --  Extended breakpoint handling for CrossIDE.
+c51_call_dptr.c  --  Helper to call functions via the DPTR data pointer register.
+calloc.c         --  Allocates zero-initialised block of memory on the heap.
+ceilf.c          --  Returns the smallest integer value not less than a float.
+clean.bat        --  Batch script to clean compiled build artefacts.
+cosf.c           --  Computes cosine of a float value (radians).
+coshf.c          --  Computes hyperbolic cosine of a float value.
+cotf.c           --  Computes cotangent of a float value.
+crt0.c           --  C runtime zero-stage startup; sets up stack before main().
+decdptr.c        --  Decrements the 8051 DPTR (data pointer) register.
+div16.c          --  16-bit integer division routine.
+divsint.c        --  Signed integer division.
+divslong.c       --  Signed long integer division.
+divuint.c        --  Unsigned integer division.
+divulong.c       --  Unsigned long integer division.
+errno.c          --  Defines the global errno error-number variable.
+expf.c           --  Computes e raised to the power of a float value.
+fabsf.c          --  Returns absolute value of a float.
+floorf.c         --  Returns the largest integer value not greater than a float.
+free.c           --  Releases a previously allocated heap memory block.
+frexpf.c         --  Splits a float into mantissa and exponent parts.
+fs2schar.c       --  Converts float to signed char.
+fs2sint.c        --  Converts float to signed int.
+fs2slong.c       --  Converts float to signed long.
+fs2uchar.c       --  Converts float to unsigned char.
+fs2uint.c        --  Converts float to unsigned int.
+fs2ulong.c       --  Converts float to unsigned long.
+fsadd.c          --  Low-level float addition for the 8051 software FPU.
+fscmp.c          --  Low-level float comparison routine.
+fsdiv.c          --  Low-level float division for the 8051 software FPU.
+fseq.c           --  Tests whether two floats are equal.
+fsget1arg.c      --  Internal helper: retrieves one float argument for FPU ops.
+fsget2args.c     --  Internal helper: retrieves two float arguments for FPU ops.
+fsgt.c           --  Tests whether one float is greater than another.
+fslt.c           --  Tests whether one float is less than another.
+fsmul.c          --  Low-level float multiplication for the 8051 software FPU.
+fsneq.c          --  Tests whether two floats are not equal.
+fsnormalize.c    --  Normalises a floating-point value after arithmetic.
+fsreturnval.c    --  Internal helper: packages and returns a float result.
+fsrshift.c       --  Right-shifts the float mantissa during FPU operations.
+fssub.c          --  Low-level float subtraction for the 8051 software FPU.
+fsswapargs.c     --  Swaps two float arguments for commutative FPU operations.
+ftoa.c           --  Converts a float to its ASCII string representation.
+getchar.c        --  Reads one character from the UART (stdin).
+gets.c           --  Reads a line of text from stdin into a buffer.
+gptrget.c        --  Reads a word via an 8051 generic (far) pointer.
+gptrgetc.c       --  Reads a byte via an 8051 generic (far) pointer.
+gptrput.c        --  Writes a byte via an 8051 generic (far) pointer.
+heap.c           --  Heap memory pool manager used by malloc/free.
+isalnum.c        --  Returns non-zero if character is alphanumeric.
+isalpha.c        --  Returns non-zero if character is alphabetic.
+iscntrl.c        --  Returns non-zero if character is a control character.
+isdigit.c        --  Returns non-zero if character is a decimal digit.
+isgraph.c        --  Returns non-zero if character has a visible glyph.
+islower.c        --  Returns non-zero if character is a lowercase letter.
+isprint.c        --  Returns non-zero if character is printable.
+ispunct.c        --  Returns non-zero if character is punctuation.
+isspace.c        --  Returns non-zero if character is whitespace.
+isupper.c        --  Returns non-zero if character is an uppercase letter.
+isxdigit.c       --  Returns non-zero if character is a hexadecimal digit.
+itoa.c           --  Converts an integer to its ASCII string representation.
+labs.c           --  Returns absolute value of a long integer.
+ldexpf.c         --  Multiplies a float by 2 raised to an integer power.
+log10f.c         --  Computes base-10 logarithm of a float value.
+logf.c           --  Computes natural logarithm of a float value.
+ltoa.c           --  Converts a long integer to its ASCII string representation.
+malloc.c         --  Allocates a block of memory from the heap.
+memchr.c         --  Searches a memory block for a specific byte value.
+memcmp.c         --  Compares two memory blocks byte by byte.
+memcpy.c         --  Copies a block of memory from source to destination.
+memmove.c        --  Copies memory handling overlapping source and destination.
+memset.c         --  Fills a block of memory with a constant byte value.
+modff.c          --  Splits a float into integer and fractional parts.
+modsint.c        --  Signed integer modulo operation.
+modslong.c       --  Signed long integer modulo operation.
+moduint.c        --  Unsigned integer modulo operation.
+modulong.c       --  Unsigned long integer modulo operation.
+mulint.c         --  Integer multiplication routine.
+mullong.c        --  Long integer multiplication routine.
+powf.c           --  Raises a float base to a float exponent power.
+print_format.c   --  Core format-string parser shared by printf variants.
+printf_fast.c    --  Fast printf implementation without floating-point support.
+printf_fast_f.c  --  Fast printf implementation with floating-point support.
+printf_tiny.c    --  Minimal printf for severely memory-constrained systems.
+printfl.c        --  printf variant that outputs to the UART with long support.
+putchar.c        --  Writes one character to the UART (stdout).
+puts.c           --  Writes a string followed by newline to stdout.
+rand.c           --  Generates a pseudo-random integer (linear congruential).
+realloc.c        --  Resizes a previously allocated heap memory block.
+scan_format.c    --  Core format-string parser shared by scanf variants.
+schar2fs.c       --  Converts signed char to float.
+setbaud1.c       --  Configures UART baud rate using Timer 1.
+setbaud2.c       --  Configures UART baud rate using Timer 2.
+setjmp.c         --  Implements setjmp/longjmp for non-local jumps.
+sincosf.c        --  Shared computation kernel for sine and cosine.
+sincoshf.c       --  Shared computation kernel for hyperbolic sine and cosine.
+sinf.c           --  Computes sine of a float value (radians).
+sinhf.c          --  Computes hyperbolic sine of a float value.
+sint2fs.c        --  Converts signed int to float.
+slong2fs.c       --  Converts signed long to float.
+sprintf.c        --  Writes a formatted string into a character buffer.
+spx.c            --  Stack pointer save/restore helper for the CrossIDE debugger.
+sqrtf.c          --  Computes square root of a float value.
+sscanf.c         --  Parses formatted input from a character buffer.
+startup.c        --  Higher-level startup code; initialises variables before main().
+strcat.c         --  Appends one string to the end of another.
+strchr.c         --  Finds first occurrence of a character in a string.
+strcmp.c         --  Compares two strings lexicographically.
+strcpy.c         --  Copies a string from source to destination.
+strcspn.c        --  Returns length of initial segment not containing given chars.
+strlen.c         --  Returns the length of a null-terminated string.
+strncat.c        --  Appends at most N characters from one string to another.
+strncmp.c        --  Compares at most N characters of two strings.
+strncpy.c        --  Copies at most N characters from source to destination.
+strpbrk.c        --  Finds first character in string that matches any in a set.
+strrchr.c        --  Finds last occurrence of a character in a string.
+strspn.c         --  Returns length of initial segment containing only given chars.
+strstr.c         --  Finds first occurrence of a substring within a string.
+strtok.c         --  Splits a string into tokens using delimiter characters.
+tancotf.c        --  Shared kernel for tangent and cotangent computation.
+tanf.c           --  Computes tangent of a float value (radians).
+tanhf.c          --  Computes hyperbolic tangent of a float value.
+taos.c           --  Driver interface for a TAOS/ams ambient light sensor.
+time.c           --  Basic time functions (time_t, difftime, etc.).
+tolower.c        --  Converts an uppercase character to lowercase.
+toupper.c        --  Converts a lowercase character to uppercase.
+uchar2fs.c       --  Converts unsigned char to float.
+uint2fs.c        --  Converts unsigned int to float.
+ulong2fs.c       --  Converts unsigned long to float.
+ultosd.c         --  Converts unsigned long to decimal ASCII string.
+ultosh.c         --  Converts unsigned long to hexadecimal ASCII string.
+ultoso.c         --  Converts unsigned long to octal ASCII string.
+vprintf.c        --  printf variant that accepts a va_list argument list.
+vscanf.c         --  scanf variant that accepts a va_list argument list.
