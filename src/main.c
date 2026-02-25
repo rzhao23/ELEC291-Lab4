@@ -16,7 +16,12 @@
 // value of RA and RB
 #define RA 			9841
 #define RB			9811
-#define LA			1  // adjust to your actual value
+#define CA			1.11F
+#define LA			0.269625737298F  // adjust to your actual value
+
+void cal_resistence (unsigned long F, float* resistance) {
+	*resistance = (1440000.0)/(CA * F) - 2 * RB;
+}
 
 // inductance calculation
 void cal_inductance (unsigned long F, float* inductance) {
@@ -42,15 +47,17 @@ void cal_freq(unsigned long* F){
 	*F = (overflow_count * 0x10000L) + (TH0 * 0x100L) + TL0;
 }
 
-bit do_meansure_flag = 0;  // global: set by cmd_read, cleared by cmd_kill
-bit c_or_h_flag = 0; // toggle by cmd_mode
+// global varaibles
+bit do_meansure_flag = 0;  // setb by cmd_read, clr by cmd_kill
+xdata unsigned char CLR_flag = 0; // updated by cmd_mode
+bit boot_flag = 0;
 
 void main (void)
 {
 	unsigned long F;
+	float resistance;
 	float capacitance;
 	float inductance;
-	
 	
 	xdata char num_buff[10];
 	xdata char print_buff[17];
@@ -63,19 +70,8 @@ void main (void)
 	LCD_4BIT();
 
 	waitms(500);
-
-	// Clear screen
-	UART_send_string("\x1b[2J");
-
-	// Startup message
-	UART_send_string("EFM8 Frequency measurement using Timer/Counter 0.\r\n");
-	UART_send_string("File: ");
-	UART_send_string(__FILE__);
-	UART_send_string("\r\nCompiled: ");
-	UART_send_string(__DATE__);
-	UART_send_string(", ");
-	UART_send_string(__TIME__);
-	UART_send_string("\r\n\r\n");
+	LCDprint("Welcome to Use", 1, 1);
+	LCDprint("Option C/L/R", 2, 1);
 
 	while(1)
 	{
@@ -93,36 +89,93 @@ void main (void)
 				}
 			} else if (cmd_len < 31) {
 				cmd_buf[cmd_len++] = c;
-				UART_send_char(c);  // echo
+				// UART_send_char(c);  // echo
 			}
 		}
 
-		if (c_or_h_flag) {
-			cal_capacitance(F, &capacitance);
-			float_to_str(capacitance, num_buff);
-			if (do_meansure_flag) {
-				UART_send_string(num_buff);
-				UART_send_string(" nF\r\n");
+		if (boot_flag == 1) {
+			if (CLR_flag == 0) {
+				cal_capacitance(F, &capacitance);
+				float_to_str(capacitance, num_buff);
+
+				if (capacitance < 2000 && capacitance > 0) {
+
+					// message format: C = xx.xx nF
+					strcpy(print_buff, "C = ");
+					strcat(print_buff, num_buff);
+					strcat(print_buff, " nF");
+
+					if (do_meansure_flag) {
+						UART_send_string(num_buff);
+						UART_send_string(" nF\r\n");
+						LCDprint("Capacitance:", 1, 1);
+						LCDprint(print_buff, 2, 1);
+					}
+					else {
+						LCDprint("Capacitance:", 1, 1);
+						LCDprint("Measure Pause   ", 2, 1);
+					}
+				}
+				else {
+					LCDprint("Capacitance:", 1, 1);
+					LCDprint("Measure Pause   ", 2, 1);
+				}
 			}
-			// message format: C = xx.xx nF
-			strcpy(print_buff, "C = ");
-			strcat(print_buff, num_buff);
-			strcat(print_buff, " nF");
-		}
-		else {
-			cal_inductance(F, &inductance);
-			float_to_str(inductance, num_buff);
-			if (do_meansure_flag) {
-				UART_send_string(num_buff);
-				UART_send_string(" mH\r\n");
+			else if (CLR_flag == 1) {
+				cal_inductance(F, &inductance);
+				float_to_str(inductance, num_buff);
+
+				if (inductance < 60000) {
+					// message format: H = xx.xx mH
+					strcpy(print_buff, "H = ");
+					strcat(print_buff, num_buff);
+					strcat(print_buff, " mH");
+
+					if (do_meansure_flag) {
+						UART_send_string(num_buff);
+						UART_send_string(" mH\r\n");
+						LCDprint("Inductance:", 1, 1);
+						LCDprint(print_buff, 2, 1);
+					}
+					else {
+						LCDprint("Inductance:", 1, 1);
+						LCDprint("Measure Pause   ", 2, 1);
+					}
+				}
+				else {
+					LCDprint("Inductance:", 1, 1);
+					LCDprint("Measure Pause   ", 2, 1);
+				}
 			}
-			// message format: H = xx.xx mH
-			strcpy(print_buff, "H = ");
-			strcat(print_buff, num_buff);
-			strcat(print_buff, " mH");
+			else if (CLR_flag == 2) {
+				cal_resistence(F, &resistance);
+				float_to_str(resistance, num_buff);
+
+				if (resistance < 60000) {
+					strcpy(print_buff, "R = ");
+					strcat(print_buff, num_buff);
+					strcat(print_buff, " ohm");
+
+					if (do_meansure_flag) {
+						UART_send_string(num_buff);
+						UART_send_string(" ohm\r\n");
+						LCDprint("Resistance:", 1, 1);
+						LCDprint(print_buff, 2, 1);
+					}
+					else {
+						LCDprint("Resistance:", 1, 1);
+						LCDprint("Measure Pause   ", 2, 1);
+					}
+				}
+				else {
+					LCDprint("Resistance:", 1, 1);
+					LCDprint("Measure Pause   ", 2, 1);
+				}
+				
+			}
 		}
+
 		
-		LCDprint(print_buff, 1, 1);
 
 		/*
 		// print frequency
