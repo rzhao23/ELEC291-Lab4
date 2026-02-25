@@ -1,6 +1,25 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include <EFM8LB1.h>
+
 void float_to_str(float number, char* buffer);
+
+typedef void (*cli_handler_t)(unsigned char argc, char *argv[]) reentrant;
+
+typedef struct {
+    const char *name;
+    const char *help;
+    cli_handler_t handler;
+} cli_cmd_t;
+
+void cmd_help(unsigned char argc, char *argv[]) reentrant;
+void cmd_mode(unsigned char argc, char *argv[]) reentrant;
+void cmd_round(unsigned char argc, char *argv[]) reentrant;
+
+extern const cli_cmd_t code cli_commands[];
+extern const unsigned char cli_cmd_count;
+
+void cli_parse_and_dispatch(char *input);
 
 #endif

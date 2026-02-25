@@ -6,47 +6,80 @@
 //  ~C51~
 
 #include <EFM8LB1.h>
-#include <stdio.h>
 #include <string.h>
 #include "timer.h"
 #include "lcd.h"
 #include "utils.h"
+#include "uart.h"
 
 // value of RA and RB
 #define RA 			9841
 #define RB			9811
+#define LA			1  // adjust to your actual value
 
-#define LA			0.269625737298F
+// helper: convert unsigned long to string
+void ulong_to_str(unsigned long n, char *buf)
+{
+	char temp[12];
+	char i = 0;
+	char j = 0;
+
+	if (n == 0) {
+		buf[0] = '0';
+		buf[1] = '\0';
+		return;
+	}
+
+	while (n > 0) {
+		temp[i++] = (n % 10) + '0';
+		n /= 10;
+	}
+
+	// reverse
+	while (i > 0) {
+		buf[j++] = temp[--i];
+	}
+	buf[j] = '\0';
+}
 
 void main (void) 
 {
 	unsigned long F;
 	float capacitance;
 	float inductance;
-	char num_buff[10];
-	char print_buff[17];
-	
+	xdata char num_buff[10];
+	xdata char print_buff[17];
+	xdata char freq_buff[12];
+
+	UART_init();
 	TIMER0_Init();
 	LCD_4BIT();
 
-	waitms(500); // Give PuTTY a chance to start.
-	printf("\x1b[2J"); // Clear screen using ANSI escape sequence.
+	waitms(500);
 
-	printf ("EFM8 Frequency measurement using Timer/Counter 0.\n"
-	        "File: %s\n"
-	        "Compiled: %s, %s\n\n",
-	        __FILE__, __DATE__, __TIME__);
+	// Clear screen
+	UART_send_string("\x1b[2J");
+
+	// Startup message
+	UART_send_string("EFM8 Frequency measurement using Timer/Counter 0.\r\n");
+	UART_send_string("File: ");
+	UART_send_string(__FILE__);
+	UART_send_string("\r\nCompiled: ");
+	UART_send_string(__DATE__);
+	UART_send_string(", ");
+	UART_send_string(__TIME__);
+	UART_send_string("\r\n\r\n");
 
 	while(1)
 	{
-TL0=0;
+		TL0=0;
 		TH0=0;
 		overflow_count=0;
 		TF0=0;
 		TR0=1; // Start Timer/Counter 0
 		waitms(1000);
 		TR0=0; // Stop Timer/Counter 0
-		F=overflow_count*0x10000L+TH0*0x100L+TL0;
+		F = overflow_count*0x10000L+TH0*0x100L+TL0;
 
 		/*
 		// capacitance calculation
@@ -64,15 +97,26 @@ TL0=0;
 		strcat(print_buff, " nF");
 		
 		LCDprint(print_buff, 1, 1);
-		printf("%s\n", print_buff); 
+		UART_send_string(print_buff);
+		UART_send_string("\r\n");
 		*/
 
+		// inductance calculation
 		inductance = 1/(LA*F/1000); // inductance measured in H
 		inductance = inductance * 1000; // inductance in mH
-		printf("%f mH\n", inductance);
 
-		printf("\rf=%luHz\n", F);
-		printf("\x1b[0K"); // ANSI: Clear from cursor to end of line.
+		// print inductance
+		float_to_str(inductance, num_buff);
+		UART_send_string(num_buff);
+		UART_send_string(" mH\r\n");
+
+		// print frequency
+		UART_send_string("\rf=");
+		ulong_to_str(F, freq_buff);
+		UART_send_string(freq_buff);
+		UART_send_string("Hz\r\n");
+
+		UART_send_string("\x1b[0K"); // ANSI: Clear to end of line
 	}
 	
 }
