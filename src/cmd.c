@@ -27,7 +27,7 @@ void cmd_read(unsigned char argc, char *argv[]) reentrant {
     UART_send_string("Output started.\n");
 }
 
-void cmd_mode(unsigned char argc, char *argv[]) reentrant {
+void cmd_mode(unsigned char argc, char *argv[]) __reentrant {
     if (argc < 2) {
         UART_send_string("Usage: mode <c/h>\n");
         return;

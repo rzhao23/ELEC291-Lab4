@@ -98,7 +98,7 @@ void main (void)
 				cal_capacitance(F, &capacitance);
 				float_to_str(capacitance, num_buff);
 
-				if (capacitance < 2000 && capacitance > 0) {
+				if (capacitance < 2000 && capacitance > 0.1) {
 
 					// message format: C = xx.xx nF
 					strcpy(print_buff, "C = ");
