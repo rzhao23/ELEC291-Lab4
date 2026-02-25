@@ -1,4 +1,30 @@
+#include <EFM8LB1.h>
 #include "utils.h"
+#include <string.h>
+
+// helper: convert unsigned long to string
+void ulong_to_str(unsigned long n, char *buf) {
+	char temp[12];
+	char i = 0;
+	char j = 0;
+
+	if (n == 0) {
+		buf[0] = '0';
+		buf[1] = '\0';
+		return;
+	}
+
+	while (n > 0) {
+		temp[i++] = (n % 10) + '0';
+		n /= 10;
+	}
+
+	// reverse
+	while (i > 0) {
+		buf[j++] = temp[--i];
+	}
+	buf[j] = '\0';
+}
 
 // convert a float number to string with two decimal places
 void float_to_str(float number, char* buffer){
@@ -6,7 +32,7 @@ void float_to_str(float number, char* buffer){
 	char temp[16];
 	char i;
 	char j;
-	char print_length;
+	char print_length = 0;
 
 	number_holder = (unsigned int)number;
 
