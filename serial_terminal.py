@@ -4,7 +4,6 @@ import sys
 import argparse
 import time
 
-
 def reader_thread(ser, stop_event):
     """Continuously read from the serial port and print to stdout."""
     while not stop_event.is_set():
@@ -41,6 +40,10 @@ def main():
     t = threading.Thread(target=reader_thread, args=(ser, stop_event), daemon=True)
     t.start()
 
+    # Request basic device info on connect
+    time.sleep(0.1)
+    ser.write(b'tibo info\n')
+
     try:
         while not stop_event.is_set():
             try:
@@ -49,7 +52,7 @@ def main():
                 break
             if stop_event.is_set():
                 break
-            ser.write((cmd + '\r\n').encode('ascii'))
+            ser.write((cmd + '\n').encode('ascii'))
     except KeyboardInterrupt:
         pass
     finally:
